@@ -14,5 +14,5 @@
 # 视频搜索
 - [查片源](https://www.chapianyuan.com/)
 - [茶杯狐](https://www.cupfox.com/)
-- [爱搜资源]（https://www.aisouziyuan.com）
+- [爱搜资源](https://www.aisouziyuan.com)
 
