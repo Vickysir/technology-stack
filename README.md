@@ -15,4 +15,5 @@
 - [查片源](https://www.chapianyuan.com/)
 - [茶杯狐](https://www.cupfox.com/)
 - [爱搜资源](https://www.aisouziyuan.com)
+- [胖次网盘搜索](https://www.panc.cc)
 
