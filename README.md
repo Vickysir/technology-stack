@@ -6,7 +6,7 @@
 - [B站](https://www.bilibili.com/)：bilibili
 - [C站](https://cosz.net/)：TUCAO吐槽
 - [D站](https://www.5dm.tv/)：dilidili  是一家专注二次元的纯动漫视频网站
-- [E站](http://www.ezdmw.com/):视频弹幕网站
+- [E站](http://www.ezdmw.com/)：视频弹幕网站
 - [G站]()：叽哩叽哩或咕噜咕噜，是动漫类的搜图基地
 - [H站](http://halihali.li/)：halilhali
 - [O站](http://www.onijiang.com/)：欧尼酱  “O站”是一个二次元动漫社交平台，类似贴吧，只不过内容都是跟动漫有关的
