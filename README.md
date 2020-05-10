@@ -2,17 +2,16 @@
 书签
 
 # 视频类
-- A站：AcFun
-- B站：bilibili
-- C站：TUCAO吐槽
-- D站：dilidili  是一家专注二次元的纯动漫视频网站
-- E站
-- G站：叽哩叽哩或咕噜咕噜
-- H站：halilhali
-- O站：欧尼酱  “O站”是一个二次元动漫社交平台，类似贴吧，只不过内容都是跟动漫有关的
+- [A站](https://www.acfun.cn/)：AcFun
+- [B站](https://www.bilibili.com/)：bilibili
+- [C站](https://cosz.net/)：TUCAO吐槽
+- [D站](https://www.5dm.tv/)：dilidili  是一家专注二次元的纯动漫视频网站
+- [E站](http://www.ezdmw.com/):视频弹幕网站
+- [G站]()：叽哩叽哩或咕噜咕噜，是动漫类的搜图基地
+- [H站](http://halihali.li/)：halilhali
+- [O站](http://www.onijiang.com/)：欧尼酱  “O站”是一个二次元动漫社交平台，类似贴吧，只不过内容都是跟动漫有关的
 
 # 视频搜索
-- [查片源](https://www.chapianyuan.com/)
 - [茶杯狐](https://www.cupfox.com/)
 - [爱搜资源](https://www.aisouziyuan.com)
 - [胖次网盘搜索](https://www.panc.cc)
@@ -21,6 +20,9 @@
 - [codelf](https://www.chapianyuan.com/)：不知道怎么起名字，就去参考这个
 - [postwoman](https://postwoman.io/)：给女程序用的（开玩笑~hhh，网页版postman，更轻，更快，更美观）
 - [TinyPNG](https://tinypng.com/)：图片压缩
+
+# 工具
+- [在线绘图](https://online.visual-paradigm.com/cn/diagrams/)：在线绘图，流程图，数据库设计、很多模板
 
 # 设计
 - [Color Scheme Design](http://www.peise.net/tools/web/)：配色器
