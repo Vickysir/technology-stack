@@ -17,3 +17,17 @@
 - [爱搜资源](https://www.aisouziyuan.com)
 - [胖次网盘搜索](https://www.panc.cc)
 
+# 编程
+- [codelf](https://www.chapianyuan.com/)：不知道怎么起名字，就去参考这个
+- [postwoman](https://postwoman.io/)：给女程序用的（开玩笑~hhh，网页版postman，更轻，更快，更美观）
+- [TinyPNG](https://tinypng.com/)：图片压缩
+
+# 设计
+- [Color Scheme Design](http://www.peise.net/tools/web/)：配色器
+- [colorhunt](https://colorhunt.co/)：颜色搭配设计
+- [iconfont](https://www.iconfont.cn/home/index)：阿里巴巴矢量图标库
+- [unDraw](https://undraw.co/illustrations)：提供ppt或者网页插画图片下载使用（简约、扁平风）
+
+# 趣味
+- [表情包](https://www.52doutu.cn/maker/)：斗图不能输
+- [Emoji表情](http://emojihomepage.com/)
