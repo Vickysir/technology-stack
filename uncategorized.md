@@ -214,3 +214,14 @@ export default () => {
 10. useDebugValue 可用于在 React 开发者工具中显示自定义 hook 的标签。
 11. 自定义hook，可以将组件逻辑提取到可重用的函数中
 
+### 类的属性
+- 静态属性
+- 私有方法
+- 保护方法
+
+### git merge 和 rebase 的区别
+### HOC 和 函数组件的区别
+### express 和 koa ，egg 和 nest 技术选型,区别
+### 
+
+
