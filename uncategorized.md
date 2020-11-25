@@ -48,7 +48,9 @@
 ### 2020-11-24 （黑湖科技，1面）
 - HOC 和 自定义的hook有什么区别?
 - webpack 中 loader 和 plugin 的区别？
+- node 负载均衡
 - express 和 koa ，egg 和 nest 技术选型,区别?
+
 
 
 ### 2020-11-24 （美味不用等，1面）
@@ -65,21 +67,25 @@
 - git rebase 和 git merge 的区别？
 - git 如果才能拉取到指定的某一次提交?
 
+### 2020-11-24 （黑湖科技，2面）
+- 闭包
+- React的生命周期
+- 跨域的解决方案
 
 
-- 防抖
+### 防抖
 > 在事件触发n秒后再触发回调，如果n秒内再次触发，则重新计时。只有最后执行一次
 ```javascript
 function fn(f1,wait){
     let timer = null
     return function(){
         clearTimeout (timer);
-        timer=setTimeInter(f1,wait);
+        timer=setTimeOut(f1,wait);
     }
 }
 ```
 
-- 节流
+### 节流
 > 高频事件触发时，n秒内只会执行一次，节流会稀释函数的执行频率
 ```javascript
 function fn(f1,time){
@@ -97,7 +103,7 @@ function fn(f1,time){
 
 
 
-- 箭头函数和普通函数的区别？
+### 箭头函数和普通函数的区别？
 1. 语法更加简洁
 2. 箭头函数没有自己的this，是定义时就确定了，继承他外层的执行环境的this，并且这个this不会再改变
 3. call、apply、bind 都无法改变箭头函数的this指向
@@ -123,3 +129,14 @@ let fun = new Fun(1);
 // 但是用户可以选择主动返回对象，来覆盖正常的对象创建步骤
 
 ```
+
+### 判断数组、字符串的方法
+- typeof 
+    > typeof是javascript原生提供的判断数据类型的运算符，它会返回一个表示参数的数据类型的字符串
+    问题：无法区分数组、null、function，他们返回的都是object。
+
+- toString
+    > 另一个行之有效的方法就是使用Object.prototype.toString方法来判断，每一个继承自Object的对象都拥有toString的方法。
+
+- instanceof
+    > instanceof运算符可以用来判断某个构造函数的prototype属性所指向的對象是否存在于另外一个要检测对象的原型链上。
