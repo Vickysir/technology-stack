@@ -20,6 +20,9 @@
 - [codelf](https://www.chapianyuan.com/)：不知道怎么起名字，就去参考这个
 - [postwoman](https://postwoman.io/)：给女程序用的（开玩笑~hhh，网页版postman，更轻，更快，更美观）
 - [TinyPNG](https://tinypng.com/)：图片压缩
+- [Carbon](https://carbon.now.sh)：Create and share beautiful images of your source code
+- [Learn Git Branching](https://learngitbranching.js.org/)：很好的用来学习如何使用git的工具
+- [impress.js](https://github.com/impress/impress.js)：制作网页PPT
 
 # 工具
 - [在线绘图](https://online.visual-paradigm.com/cn/diagrams/)：在线绘图，流程图，数据库设计、很多模板
