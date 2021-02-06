@@ -1,6 +1,3 @@
-# bookmark
-书签
-
 # 视频类
 - [A站](https://www.acfun.cn/)：AcFun
 - [B站](https://www.bilibili.com/)：bilibili
