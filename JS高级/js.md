@@ -9,7 +9,8 @@
 <!-- - [继承](#继承)<br> -->
 <!-- - [多态](#多态)<br> -->
 - [this指向](#this指向)<br>
-<!-- - [call和apply](#call和apply)<br> -->
+- [call、apply和bind](#call、apply和bind)<br>
+- [手写一个bind的实现](#手写一个bind的实现)<br>
 <!-- - [闭包](#闭包)<br> -->
 <!-- - [变量提升](#变量提升)<br> -->
 <!-- - [执行上下文](#执行上下文)<br> -->
@@ -208,13 +209,95 @@ console.log(obj1.getName().call(obj2)) // anne
 ```
 
 <br>
+<hr>
 <br>
+
+### call、apply和bind
+
 <br>
+
+1. call 和 apply 的区别
+
 <br>
+
+> call 和 apply 的两个都可以`动态的改变this指向`，区别就在于`第二个参数`，apply传入的是一个数组。
+
+<br>
+
+> 在使用 call 和 apply 时，如果第一个参数为 `null` ，函数体内的 this 会指向默认的宿主对象，在浏览器里则是 `window`
+
+<br>
+
+
+2. 与bind的区别
+
+<br>
+
+
+> bind方法是事先把fn的this改变为我们要想要的结果，并且把对应的参数值准备好，以后要用到了，直接的执行即可，也就是说`bind同样可以改变this的指向`，但和apply、call不同就是`不会马上的执行`
+
+<br>
+
+#### 手写一个bind的实现
+
+<br>
+
+```js
+Function.prototype.bind = function(){ 
+
+    var self = this, // 保存原函数
+    context = [].shift.call( arguments ),
+    args = [].slice.call( arguments ); 
+
+    return function(){ // 返回一个新的函数
+        // 需要绑定的 this 上下文 // 剩余的参数转成数组
+        return self.apply( context, [].concat.call( args, [].slice.call( arguments ) ) ); // 执行新的函数的时候，会把之前传入的 context 当作新函数体内的 this
+        // 并且组合两次分别传入的参数，作为新函数的参数
+    } 
+};
+
+var obj = {
+     name: 'sven'
+};
+var func = function( a, b, c, d ){
+    alert ( this.name );        // 输出:sven
+    alert ( [ a, b, c, d ] )    // 输出:[ 1, 2, 3, 4 ]
+}.bind( obj, 1, 2 ); 
+
+func( 3, 4 );
+```
+
+<br>
+
+3. call、apply与bind的用途
+
+<br>
+
+> “借用构造函数”，通过这种技术，可以实现一些类似继承的效果
+
+<br>
+
+```js
+
+var A = function( name ){
+    this.name = name;
+};
+
+var B = function(){
+    A.apply( this, arguments );
+};
+
+B.prototype.getName = function(){
+    return this.name;
+}
+
+var b = new B('sven')
+console.log( b.getName() ); // 输出: 'sven'
+```
+
 <br>
 <br>
 
-### call和apply
 ### 闭包
 ### 高阶函数
 ### 原型、原型链
