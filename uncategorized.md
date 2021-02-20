@@ -2,7 +2,8 @@
 
 <br>
 
-[前端进阶之道指南](https://yuchengkai.cn/docs/frontend/)
+[前端进阶之道指南](https://yuchengkai.cn/docs/frontend/)<br>
+[大厂面经](https://juejin.cn/post/6844904154675183623)<br>
 
 <br>
 <hr>
