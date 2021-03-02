@@ -299,6 +299,28 @@ console.log( b.getName() ); // 输出: 'sven'
 <br>
 
 ### 闭包
+var mult = (function(){
+    var cache = {}; 
+
+    var calculate=function(){ //封闭 calculate 函数
+        var a=1; 
+        for(var i=0,l=arguments.length;i<l;i++){
+            a = a * arguments[i]; 
+        }
+        return a; 
+    };
+
+    return function(){
+        var args = Array.prototype.join.call( arguments, ',' ); 
+        if ( args in cache ){ 
+            return cache[ args ]; 
+        }
+        return cache[ args ] = calculate.apply( null, arguments );
+    } 
+})();
+
+console.log ( mult( 1,2,3 ) ); 
+console.log ( mult( 1,2,3 ) );
 ### 作用域、作用域链
 ### 高阶函数
 ### 原型、原型链
