@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>video test</title>
+</head>
+<body>
+	<style>
+		body{
+			background-color: #ccc;
+		}
+		#container{
+			width: 100%;
+			height:100px;
+			background-color:#000;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+
+			color: #fff;
+			text-align: center;
+			}
+		#box{
+			width: 100%;
+			height:100px;
+			background-color: #fff;
+			position: fixed;
+			left: 0;
+			bottom: -50px;
+			opacity: 0;
+			-webkit-transition: all .5s ease-in;  
+        	-moz-transition: all .5s ease-in;  
+        	transition: all .5s ease-in;  
+
+        	color: #000;
+        	text-align: center;
+			}
+		#box.move{
+			opacity: 1;
+			bottom: 0px;
+		}
+	</style>
+	<div id="container">
+		鼠标移入试试
+		<div id="box">控制条(无操作，3秒后消失)</div>
+	</div>
+	<script>
+		var now,timer;
+		// 首先获取一次，最后时间
+		var lastTime=new Date().getTime();
+		// 获取元素
+		var container=document.getElementById("container");
+		var box=document.getElementById("box");
+		//当鼠标移入控制条区域时，控制条显示出来
+		container.onmousemove=function(){
+			//记录一次lastTime的时间
+			lastTime=new Date().getTime();
+			// 返回结果为毫秒数
+			box.classList.add("move");
+		}
+	
+		// 每搁一秒检查一次，如果无操作超过3秒，则控制条消失
+		timer=setInterval(function(){
+			// 获取最新的时间
+			now=new Date().getTime();
+			//如果now的时间-lastTime超过3秒;
+			//就将div隐藏
+			if(now-lastTime>3000){
+				box.classList.remove("move");
+			}
+		},1000)
+		
+	</script>
+</body>
+</html>
