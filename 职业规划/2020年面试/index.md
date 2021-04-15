@@ -12,6 +12,7 @@
 
 [前端进阶之道指南](https://yuchengkai.cn/docs/frontend/)<br>
 [大厂面经](https://juejin.cn/post/6844904154675183623)<br>
+[基础部分](https://juejin.cn/post/6947860760840110088?utm_source=gold_browser_extension#heading-50)<br>
 
 <br>
 <hr>
