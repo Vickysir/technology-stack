@@ -90,3 +90,11 @@
   - 类的标识
     - private 私有属性，外部无法往往
     - static 静态属性，内部可以直接使用，外部用【类.XXX】
+
+#### 0813-blacklake-foundation commit 知识点
+
+- package.json 文件字段理解
+  > main、module、typings 的作用
+  - main
+  - module
+  - typings
