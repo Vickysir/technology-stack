@@ -56,7 +56,7 @@
 - 空间复杂度
 - [git 常见使用](https://juejin.im/post/6891146425590087693?utm_source=gold_browser_extension#heading-9)
 
-### 2020-11-22 （黑湖科技，笔试）
+### 2020-11-22 （BL科技，笔试）
 
 - 虚拟 dom
 - webpack 中 source map 的使用
@@ -64,7 +64,7 @@
 - 重绘 和 回流，如何优化？
 - Hooks 解决了什么问题？自定义 hook 实现
 
-### 2020-11-24 （黑湖科技，1 面）
+### 2020-11-24 （BL科技，1 面）
 
 - HOC 和 自定义的 hook 有什么区别?
 - webpack 中 loader 和 plugin 的区别？
@@ -86,7 +86,7 @@
 - git rebase 和 git merge 的区别？
 - git 如果才能拉取到指定的某一次提交?
 
-### 2020-11-24 （黑湖科技，2 面）
+### 2020-11-24 （BL科技，2 面）
 
 - 闭包
 - React 的生命周期
