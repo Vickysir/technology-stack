@@ -44,3 +44,12 @@
 
 - 韭菜盒子
 - 小霸王
+
+### 同步配置
+
+> 如何在新电脑上快速同步 vscode 插件和配置
+
+```
+vscode_sync 的token: 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
+GitHub Gist ID: 4842bfa09545f3cd3619fe657a0d53b3
+```
