@@ -16,7 +16,59 @@
 
 [git flow 详细](https://juejin.cn/post/6844903997589946382)
 
+> <img src="../../images/gitflowByme.jpg" />
+
+### One-Commit 原则
+
+痛点：
+
+> 开发中，代码需要多次在不同分支之间进行同步，如果不对 commit 进行管理，会发现操作繁琐、冲突频发，还可能发生遗漏问题。
+> 目标：
+> 希望做到任意场景下，每次 cherry-pick 只需拣 1 个 commit，绝不出现需要拣 2 个及以上 commits 的情况，姑且称为『One-Commit』。这样可以将代码同步的心智负担和错漏风险降到最低，分支的提交记录也会非常整洁。
+
+基本思路:
+
+> 为了实现『One-Commit』的目标，需要借助一些 git 命令.
+> 首次提交时，写明需求的总体内容，称为『基准提交』（很重要，后面会一直用到）；
+> 从第二个提交开始，可按照下面三个思路任选一个。
+
+```
+// 思路1
+git commit -m 'feat(设备):设备模块'
+git commit --amend
+
+// 思路2
+git commit -m 'feat(设备):设备模块'
+git commit --fixup <commit>
+git rebase -i --autosquash <commit>
+
+// 思路3
+git commit -m 'feat(设备):设备模块'
+git commit -m 'feat(设备):新建设备'
+git commit -m 'feat(设备):编辑设备'
+git rebase -i  <commit>
+
+```
+
 ### git 提交规范
+
+看一下 commit message 的格式：
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+我们可以发现，commit message 分为三个部分(使用空行分割):
+
+标题行（subject）: 必填, 描述主要修改类型和内容。
+主题内容（body）: 描述为什么修改, 做了什么样的修改, 以及开发的思路等等。
+页脚注释（footer）: 可以写注释，放 BUG 号的链接。
+
+以下为规范的 type 类型：
 
 ```
 feat: 新增产品功能
@@ -31,6 +83,8 @@ ci: 修改了 CI 配置、脚本
 chore: 对构建过程或辅助工具和库的更改,不影响源文件、测试用例的其他操作'
 revert: 回滚 commit
 ```
+
+当然，我们可以通过工具，可以很好的管理团队成员的 git commit 格式，无需使用人力来检查。`husky`可以在 package.json 里配置 git hook 脚本,能在重要动作发生时触发自定义脚本。
 
 ### 产品发布版本号规则描述
 

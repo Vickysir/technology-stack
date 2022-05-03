@@ -1,18 +1,16 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-08 09:34:29
- * @LastEditTime: 2021-04-08 10:32:04
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-03 15:56:43
+ * @LastEditors: Vicky Yu
  * @Description: In User Settings Edit
- * @FilePath: /technology-stack/中、大型项目/index.md
+ * @FilePath: /technology-stack/项目管理/中、大型项目/index.md
 -->
 
 ### 规范
 
-- 代码规范
-- 命名规范
-- 工程目录结构规范
-- 注释规范
+- [代码](./规范/index.md)
+- [gitflow](../../Git/gitflow/index.md)
 - ESLint，Prettier 配置
 - TypeScript 配置
 - [Code Review](./CodeReview.pdf)
