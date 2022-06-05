@@ -1,6 +1,6 @@
 ### gitflow
 
-<img src="../../images/gitflow.png" />
+<img src="../images/gitflow.png" />
 
 #### 分支管理
 
@@ -16,7 +16,7 @@
 
 [git flow 详细](https://juejin.cn/post/6844903997589946382)
 
-> <img src="../../images/gitflowByme.jpg" />
+> <img src="../images/gitflowByme.jpg" />
 
 ### One-Commit 原则
 
