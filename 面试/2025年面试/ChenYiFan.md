@@ -8,9 +8,9 @@
 
    - Fiber 是 React 16 之后引入的一种新的协调引擎（Reconciliation Engine），它对虚拟 DOM 进行了更细粒度的拆分和管理。每个 Fiber 节点对应一个组件或元素，Fiber 架构的核心目标是让 React 的渲染过程变得可中断、可恢复、可分片，从而实现更灵活的任务调度和更流畅的用户体验。
 
-3. 你提到熟悉 Vue3 语法，能否简单对比一下 Vue3 和 React 在组件开发上的主要区别？
-4. 你在项目中用到了 useState 和 useEffect，请分别说明它们的作用和使用场景，有哪些需要注意的地方？
-5. 你在 EasyChat 项目中用到了 WebSocket，请简述 WebSocket 与 HTTP 的区别，以及 WebSocket 在前端开发中的典型应用场景。
+3. 你在项目中用到了 useState 和 useEffect，请分别说明它们的作用和使用场景，还使用过其他哪些hook？ 
+4. 你提到熟悉 Vue3 语法，能否简单对比一下 Vue3 和 React 在组件开发上的主要区别？
+5. 你在 EasyChat 项目中用到了 WebSocket，请简述 WebSocket 与 HTTP 的区别，WebSocket 的心跳包如何实现？
 6. 你在项目中做过性能优化，请举例说明你是如何定位和优化页面首屏渲染速度的？
 7. 你了解 Webpack 和 Vite 的区别，请简要说明它们的构建原理和适用场景。
 8. 你在项目中提到对 axios 进行了二次封装，请谈谈你是如何设计和实现的？遇到过哪些问题，如何解决的？
