@@ -1,22 +1,92 @@
 ## 一、面试题
-1. 学术经历————讲授html、css、js课程，主要的课程内容是什么？
 
-    - 响应式设计应该注意哪些方面？
-    - 有哪些方式（CSS）可以隐藏页面元素,区别是什么？
-    - 什么是重绘、什么是回流？
-    - js 是如何执行异步代码的？
+1. 学术经历————讲授 html、css、js 课程，课程内容有什么？
 
-2. 请简要介绍一下react的原理，比如虚拟Dom、React Fiber之类的
-    - react hook 使用
-    - 组件之间的如何通讯？
-    - 什么是受控组件？复杂表单如何处理？
-    - 自己封了什么自定义组件？自定义hook有哪些规则？
+   - 盒模型的分类及区别
+   - css 选择器权重计算方式
+   - 响应式设计应该从哪些方面入手？
+   - 有哪些方式（CSS）可以隐藏页面元素,区别是什么？
+   - 什么是重绘、什么是回流？上面哪些操作会触发重绘？哪些会回流？
+     - visibility、opacity、overflow 只触发重绘，布局没有变化
+     - display、position、位置、布局、尺寸变化会触发回流
+
+2. React 部分
+   - 在项目中 useEffect/useState 是如何使用的
+   - 常见的 react hook 使用
+   - 自己封了什么自定义组件？使用自定义 hook 有哪些规则？
+   - 用了 localStorage，数据持久化的方案还有哪些？在 react 中，组件之间的数据沟通方式有哪些？
+   - 请简要介绍一下 react 的原理，比如虚拟 Dom、diff 算法、React Fiber 谈谈你的理解
+   - 工程化的了解，webpack 等打包工具的基本配置
 
 ## 二、笔试题
 
-1. 回文子串
+1. js 的事件循环
 
-> 给你一个字符串 s ，请你统计并返回这个字符串中 回文子串 的数目。
+```js
+function fn() {
+  console.log("start");
+
+  setTimeout(() => {
+    console.log("setTimeout 0");
+  }, 0);
+
+  Promise.resolve()
+    .then(() => {
+      console.log("promise1");
+    })
+    .then(() => {
+      console.log("promise2");
+    });
+
+  setTimeout(() => {
+    console.log("setTimeout 100");
+  }, 100);
+
+  console.log("end");
+}
+
+// start
+// end
+// promise1
+// promise2
+// setTimeout 0
+// setTimeout 100
+```
+
+```js
+// 变种1 * ：async/await + Promise
+async function fn1() {
+  console.log("start");
+
+  setTimeout(() => {
+    console.log("setTimeout 0");
+  }, 0);
+
+  await Promise.resolve().then(() => {
+    console.log("promise1");
+  });
+
+  console.log("await end");
+
+  Promise.resolve().then(() => {
+    console.log("promise2");
+  });
+
+  console.log("end");
+}
+// start
+// promise1
+// await end
+// end
+// promise2
+// setTimeout 0
+```
+
+2. 算法————回文子串 （medium）
+
+```
+
+给你一个字符串 s ，请你统计并返回这个字符串中 回文子串 的数目。
 
 回文字符串 是正着读和倒过来读一样的字符串。
 
@@ -36,6 +106,8 @@
 
 1 <= s.length <= 1000
 s 由小写英文字母组成
+
+```
 
 【解题思路】
 

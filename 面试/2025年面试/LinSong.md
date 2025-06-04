@@ -158,4 +158,11 @@ function fn() {
 
   console.log("end");
 }
+
+// start
+// end
+// promise1
+// promise2
+// setTimeout 0
+// setTimeout 100
 ```
