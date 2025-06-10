@@ -47,6 +47,16 @@
             return Promise.race([promise, timeoutPromise]);
         }
         ```
+        ```javascript
+        // 手写一个 Promise.race
+        function myPromiseRace<T>(promises: Promise<T>[]): Promise<T> {
+            return new Promise((resolve, reject) => {
+                promises.forEach(promise => {
+                    Promise.resolve(promise).then(resolve, reject)
+                })
+            })
+        }
+        ```
 
     - 如何实现一个带并发限制的Promise调度器?
     - Promise在实际项目中的应用
@@ -127,16 +137,25 @@
             - 在使用watch监视响应式数据时，reactive默认开启深度监视，ref定义的对象类型的数据需要手动开启
 
         - watch监视数据的变化，有哪些参数？可以监视哪些种情况（ref2种，reactive1种）
-            - 监视数据，回调函数，监视配置参数，如`deep`,`immediate`会立刻开始监视
+            - 三个参数，监视数据，回调函数，监视配置参数，如`deep`,`immediate`会立刻开始监视
             - 在监视ref定义的数据时，什么时候新旧value一致，什么时候不一致？为什么？
                 - 监视对象类型的数据，需开启深度监视，然后在修改某个属性时新旧一致，修改整个对象时，有新旧之分
             - 监视reactive定义的数据时，只监听某一个属性应该怎么办？
                 - 把监视数据改为一个`getter`函数，需要深度监视再开启`deep`
                 - 不用`getter`不是也可以监视到吗？为什么非要用呢？
                     - 整个对象变化是监视不到的
+        - watchEffect
+            - 监视处理副作用
+            - 与 watch 的区别，无需指定依赖，自动识别
 
         - toRefs/toRef 是用来解构reactive对象的，使其解构出来的值夜具备响应式能力
+            - Pinia提供的storeToRef有什么区别
         - 为什么我们不直接使用我们定义的方法函数，而是要使用computed
             - 缓存 
         - 如何能修改computed的计算属性呢
             - `get()`，`set()`
+        - 标签的ref属性
+            - 为什么不直接给标签一个id，通过document.getElementByid去获取dom元素（局部隔离）
+            - 那么样式隔离是如何处理的呢？（style 加一个scope属性）
+            - 那如果给组件身上加一个ref，这个ref拿到的是什么？
+                - 怎么能拿到组件的里的数据（需要在组件内部使用defineExpose出去）
