@@ -1,15 +1,61 @@
 - Vue3 + Pinia + Ant Design Vue + Vite
     - Vue3
+        - vue组件的生命周期？
+            - created 和 mounted 最主要的区别是什么？
+            - 哪个钩子可以访问到真实的dom元素？
+                - mounted 之后都可以
+            - 在vue3中的setup()函数执行的时机呢？处于哪个生命周期？setup 里为什么不能使用 `this` ?
+                - setup执行时机是在组件实例创建之前, beforeCreate + created
+
+        - 响应式
+            - 在vue3中 ref 和 reactive 的区别
+                - `.value`的作用是什么？为什么基本类型要用ref包裹？
+                    - ref内部是如何实现的？
+                - reactive重新分配对象时，为什么会失去响应式？如何处理？
+                - reactive创建的响应式对象，vue内部是如何处理嵌套对象的？
+            - 在使用watch监视数据的变化，有哪些参数？
+                - 为什么推荐监视数据改为一个`getter`函数， 什么是`getter`函数？
+                - watch 与 watchEffect 的区别
+            - 标签的ref属性，可以用它干什么？
+                - 为什么不直接给标签一个id，通过document.getElementByid去获取dom元素（局部隔离）
+                - 那么样式隔离是如何处理的呢？（style 加一个scope属性）
+                - 那如果给组件身上加一个ref，这个ref拿到的是什么？
+                    - 怎么能拿到组件的里的数据（需要在组件内部使用defineExpose出去）
+
+        - 常见的组件通信的方式
+            - 父子组件
+                - 父子
+                - 子父
+                - 双向数据绑定
+            - 跨组件通信    
+                - 依赖注入(provide/inject)
+                - 事件总线
+                - 状态管理
+            - 其他
+                - ref引用
+        - 选择通信方式的原则
+            - 父子组件优先使用props/emit
+            - 跨多层组件优先考虑provide/inject
+            - 全局状态管理优先使用Pinia
+            - 避免过度使用事件总线,可能导致数据流向难以追踪
+
+        - Pinia
+            - 详细说一下 Pinia，如何定义一个store的基本结构
+                - createPinia 创建 store
+                - 如何修改数据（store是选项式写法的话）
+                    - 直接修改
+                    - $patch 批量修改
+                    - actions 修改数据
+                - 如何订阅state和action的变化
+                - 关于Pinia的插件系统有什么用？可以举例一个插件的用途吗？
+
+      
+
+
     - 从0到1搭建一个Vue3前端项目需要怎么做？如何设计？
         - 使用TypeScript
-        - Vue Router 路由
         - Pinia 状态管理
-            - 为什么要使用状态管理？
-            - 如何使用Pinia存储、读取、修改数据（store是选项式写法的话）
-                - 直接修改
-                - $patch 批量修改
-                - actions 修改数据
-  
+        - Vue Router 路由
         - Vite 配置
             - 配置别名
             - 配置环境变量
@@ -19,26 +65,28 @@
 
         - 集成常用工具库
             - HTTP请求库 Axios
-                - 如何在请求实例中统一处理取消逻辑（存在重复请求，则取消已发的请求）
-                    - CancelToken 或者 AbortController
-                - 如果在业务需求中需要进行一连串的接口请求，如何用Promise实现一个超时中断
-                - 如何自己实现一个Promise.race
-
             - UI组件库  Ant Design Vue
             - 工具库 lodash等
         - 配置代码规范
             - ESLint配置
             - 配置 Git Hooks（使用husky）
+        - 配置状态管理
+        - 封装公共组件
+        - 配置全局样式
 
         - 基础功能搭建
             - 封装axios请求
+                 - 如何在请求实例中统一处理取消逻辑（存在重复请求，则取消已发的请求）
+                    - CancelToken 或者 AbortController
+                - 如果在业务需求中需要进行一连串的接口请求，如何用Promise实现一个超时中断
+                - 如何手写一个Promise.race
             - 配置路由守卫
-                - 如何设置全局路由守卫
-                - 如果在进入路由前需要预先加载必要数据，路由离开前如表单未保存时提示用户，应该如何设置组件内守卫
+                - 如何设置全局路由守卫 router.beforeEach
+                - 如何设置独享守卫 beforeEnter
+                - 如何设置组件内守卫
+                    - beforeRouteEnter进入路由前需要预先加载必要数据，beforeRouteLeave路由离开前如表单未保存时提示用户
+                - 前两种执行顺序是怎样的？组件内守卫呢？
 
-            - 配置状态管理
-            - 封装公共组件
-            - 配置全局样式
     ```
     src/
      ├── assets/        # 静态资源
