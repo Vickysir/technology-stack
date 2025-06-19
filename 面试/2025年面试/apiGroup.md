@@ -12,7 +12,7 @@
     - 在 vue3 中的 setup()函数执行的时机呢？处于哪个生命周期？setup 里为什么不能使用 `this` ?
       - setup 执行时机是在组件实例创建之前, beforeCreate + created
     - 选项式 API 执行时处于哪个生命周期？
-      - beforeCreate 之后，created 之前
+      - beforeCreate 和 created 之间
     - 哪个钩子可以访问到真实的 dom 元素？
       - mounted 之后都可以
   - 指令
