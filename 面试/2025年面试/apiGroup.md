@@ -95,13 +95,19 @@
 - 组件通信
 
   - 父子组件
-    - 父子
-    - 子父
-    - 双向数据绑定
+    - 父子 props
+    - 子父 1.回调函数（defineProps）；2.给子组件绑定自定义事件（defineEmit）
   - 跨组件通信
     - 依赖注入(provide/inject)
     - 事件总线
     - 状态管理
+    - mitt 订阅触发，有点像自定义事件
+  - 双向数据绑定
+   - 如何自己实现一个 v-modal 的 input组件呢
+      - defineProps 接收数据，实现数据呈现到页面，自定义事件defineEmit实现页面上修改数据
+      - vue2 `:value`,`@input 事件`
+      - vue3 `:moudleValue`,`@update:moudleValue`
+      -`v-moudle:pwd`
   - 其他
 
     - ref 引用
