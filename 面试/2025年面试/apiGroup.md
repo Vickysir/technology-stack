@@ -8,13 +8,6 @@
 
 - 响应式原理
 
-  - 生命周期
-    - 在 vue3 中的 setup()函数执行的时机呢？处于哪个生命周期？setup 里为什么不能使用 `this` ?
-      - setup 执行时机是在组件实例创建之前, beforeCreate + created
-    - 选项式 API 执行时处于哪个生命周期？
-      - beforeCreate 和 created 之间
-    - 哪个钩子可以访问到真实的 dom 元素？
-      - mounted 之后都可以
   - 指令
     - 常见指令
       - 条件渲染指令 v-if、v-show
@@ -23,6 +16,25 @@
       - 事件绑定指令 v-on
       - 双向数据绑定指令 v-model
 
+  - 生命周期
+    - setup 里为什么不能使用 `this` ?
+      - 在 vue3 中的 setup()函数执行的时机呢？处于哪个生命周期？
+        - setup 执行时机是在组件实例创建之前, beforeCreate + created
+      - 选项式 API 执行时处于哪个生命周期？
+        - beforeCreate 和 created 之间
+
+    - 哪个钩子可以访问到真实的 dom 元素？
+      - mounted 之后都可以
+
+    - 当通过 v-show，v-if 去控制一个组件显示隐藏时，会触发什么生命周期
+      - v-if 是直接删除dom，触发卸载
+      - v-show 只是隐藏起来了
+
+    - 父子组件的生命周期
+      - 先渲染子的周期
+      - 最后解析App.vue组件里的生命周期
+
+
 - 组件设计
 
   - composition API 和 Options API 相比，优势是什么？它是如何更好的解决逻辑复用和代码组织的问题？
@@ -30,8 +42,9 @@
     - setup 定义数据、方法，函数式编程
     - 数据和方法要分别在 data、mathod 中定义
     - setup 里的数据还需处理响应式的问题，data 定义时是自带响应式
+    - 自定义hooks，将data和mathod封装在一个ts或js文件里然后通过export导出，可以直接在组件中使用，这样发挥 composition API 的优势
 
-  - 声明响应式状态
+  - 如何声明响应式状态
   - ref 和 reactive 的区别？为什么有时候要用 ref 包裹对象？
 
     - ref 定义基本类型数据
@@ -62,7 +75,7 @@
   - 如何能修改 computed 的计算属性呢
     - `get()`，`set()`
   - toRefs/toRef 是用来解构 reactive 对象的，使其解构出来的值夜具备响应式能力
-
+    - toRef用来解构单个对象的某个属性，toRefs解构整个对象
     - Pinia 提供的 storeToRef 有什么区别
 
   - 如果需要直接访问底层 DOM 元素怎么办？
@@ -103,6 +116,7 @@
   - Pinia
     - 详细说一下 Pinia，如何定义一个 store 的基本结构
       - createPinia 创建 store
+      - 如何存储、读取数据
       - 如何修改数据（store 是选项式写法的话）
         - 直接修改
         - $patch 批量修改
@@ -110,6 +124,42 @@
       - 如何订阅 state 和 action 的变化
       - 关于 Pinia 的插件系统有什么用？可以举例一个插件的用途吗？
 
+- 对路由的理解
+  - 导航区（RouterLink：to/activeClass）、展示区（RouterView）
+  - 路由器
+  - 路由规则
+  - 形成一个个组件
+
+  - 路由器的工作模式
+    - history路由
+    - hash路由，路径带`#` 
+  - 嵌套路由
+  - 路由传参
+    - query
+      - 使用useRouter接收参数
+    - params
+      - 使用useRouter接收参数
+      - 路由path里增加占位 `/:id/`
+      - 参数必要性,可以使用问好 `/:id/:content?`
+      - 参数不能传数组
+    - 路由的props配置
+        - 使用defineProps接收参数
+        - 将路由的params作为props传给组件
+          `props:true`
+        - 也可以通过一个函数返回路由的 query
+        - `props:(router)=>router.qurry`
+  - 路由replace属性
+    - RouterLink 上有一个replace，用于替换当前路由不能前进不能后退
+    - push 追加历史记录（默认）
+  - 编程式路由导航（如何脱离RouterLink实现路由跳转）
+    - useRouter
+    -`router.push()`
+    - `:to="{}"` to的对象传参
+    - 使用场景：只有在某些情况下执行跳转，如8点开始秒杀
+
+  - 路由重定向
+    `redirect` 指定重定向要跳转的组件
+  
 ### 从 0 到 1 搭建项目
 
 - 从 0 到 1 搭建一个 Vue3 前端项目需要怎么做？如何设计？
