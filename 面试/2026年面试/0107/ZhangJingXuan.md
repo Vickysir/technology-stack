@@ -216,6 +216,68 @@ console.log("6");
 // 微任务队列清空后才会执行宏任务
 ```
 
+```js
+// 变种2 ***：Promise 嵌套
+function fn2() {
+  console.log("start");
+
+  new Promise((resolve) => {
+    console.log("promise1");
+    resolve();
+  })
+    .then(() => {
+      console.log("then1");
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          console.log("setTimeout in promise");
+          resolve();
+        }, 0);
+      });
+    })
+    .then(() => {
+      console.log("then2");
+    });
+
+  setTimeout(() => {
+    console.log("setTimeout 0");
+  }, 0);
+
+  console.log("end");
+}
+// start
+// promise1
+// end
+// then1
+// setTimeout 0
+// setTimeout in promise
+// then2
+
+// 1. 首先执行同步代码：
+//      打印 "start"
+//      创建第一个 Promise，执行其执行器函数，打印 "promise1"，并立即 resolve
+//      打印 "end"
+// 2. 此时：
+//      微任务队列中：有第一个 then 的回调
+//      宏任务队列中：只有一个 setTimeout（来自代码最后的 setTimeout）
+// 3. 执行第一个 then 的回调：
+//      打印 "then1"
+//      创建并返回一个新的 Promise，这个 Promise 的执行器函数中有一个 setTimeout
+//      这个 setTimeout 被放入宏任务队列
+// 4. 此时：
+//      微任务队列为空
+//      宏任务队列中有两个 setTimeout：
+//        第一个是代码最后的 setTimeout
+//        第二个是第一个 then 中 Promise 的 setTimeout
+// 5. 执行宏任务队列中的第一个 setTimeout（来自代码最后的 setTimeout）：
+//      打印 "setTimeout 0"
+// 6. 执行宏任务队列中的第二个 setTimeout（来自第一个 then 中的 Promise）：
+//      打印 "setTimeout in promise"
+//      这个 Promise resolve
+// 7. 由于第一个 then 返回的 Promise 被 resolve，第二个 then 的回调被放入微任务队列
+// 8. 执行第二个 then 的回调：
+//      打印 "then2"
+```
+
 ---
 
 #### 题目 3：this 指向（中级）
